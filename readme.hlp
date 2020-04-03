@@ -1,0 +1,8 @@
+Install MPI in Ubuntu
+-sudo apt update
+-sudo apt upgrade
+-sudo apt install mpich
+
+Compile and Execute
+-mpicxx <program_name.cpp> -o <program_name>
+-mpiexec -n <number_of_processes> ./<program_name>
