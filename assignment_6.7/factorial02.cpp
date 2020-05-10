@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
 		int factorial;
 		MPI_Recv(&factorial, 1,MPI_INT, n-1, n, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 
-		printf("Factorial %d is %d.\n",n,factorial);
+		printf("Factorial %d is %d.\n",n-1,factorial);
 	}
 
 	else {
@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
 		int prev;
 		MPI_Recv(&prev, 1, MPI_INT, myrank-1, myrank, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 
-		int nxt = prev * (myrank+1);
+		int nxt = prev * myrank;
 
 		// Send data to next
 		if(n-1 == myrank){
